@@ -73,7 +73,7 @@ jobs:
       device_count: ${{ steps.set-matrix.outputs.count }}
     steps:
       - name: 📥 Checkout Code (to access configs/)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           sparse-checkout: |
             configs/
@@ -171,7 +171,7 @@ jobs:
           echo "::endgroup::"
 
       - name: Upload build matrix
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: build-matrix
           path: matrix.json
@@ -338,7 +338,7 @@ jobs:
           echo "susfs_branch=$susfs_branch" >> "$GITHUB_OUTPUT"
 
       - name: 📥 Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 1
 
@@ -539,7 +539,7 @@ jobs:
       SUSFS_BASE_VERSION: 'v2.0.0'
     steps:
       - name: 📥 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -559,7 +559,7 @@ jobs:
           git push origin $NEW_TAG
 
       - name: 📥 Download Artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           path: ./downloaded-artifacts
 
